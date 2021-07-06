@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema(
 		password: { type: String, required: true }
 	},
 	{ collection: 'users' }
-)
+) // this simply specifies the nature of the Mongo DB
 
 const model = mongoose.model('UserSchema', UserSchema)
 
