@@ -8,11 +8,11 @@ const jwt = require('jsonwebtoken')
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 const SERVER = 8080
-mongoose.connect('mongodb://localhost:27012/login-app-db', { //where loginappdb is the name of the databse. 27017 is the mongoose default
- 	useNewUrlParser: true, // parameters
- 	useUnifiedTopology: true, // parameters
- 	useCreateIndex: true // parameters
- })
+// mongoose.connect('mongodb://localhost:27012/login-app-db', { //where loginappdb is the name of the databse. 27017 is the mongoose default
+//  	useNewUrlParser: true, // parameters
+//  	useUnifiedTopology: true, // parameters
+//  	useCreateIndex: true // parameters
+//  })
 
 const app = express()
 
@@ -34,7 +34,7 @@ app.post('/api/register', async(req, res) => { //request response
 		console.log(response)
 
 	} catch(error) {
-		console.log(error)
+		console.log(error.message)
 		return res.json({status:"error"})
 	}
 
