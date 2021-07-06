@@ -21,6 +21,24 @@ app.use(bodyParser.json()) // middleware to parse a json
 
 app.post('/api/register', async(req, res) => { //request response
 	console.log(req.body)
+	const {username, password: plaintextpword} = req.body // this is destructuring; taking usernmae and password from the req.body
+
+	//console.log(await bcrypt.hash(plaintextpword,10))
+	const password = await bcrypt.hash(plaintextpword,10)
+	try{
+		const response = await User.create({
+			username,
+			password
+		})
+		console.log("user created")
+		console.log(response)
+
+	} catch(error) {
+		console.log(error)
+		return res.json({status:"error"})
+	}
+
+	
 	res.json({status:"OK"})
 
 })
