@@ -33,7 +33,7 @@ app.use('/', express.static(path.join(__dirname, 'static')))
 app.use(bodyParser.json()) // middleware to parse a json
 
 
-
+//Change password API call----------------------------------------------
 app.post('/api/change-password', async (req, res) => {
 	const { token, newpassword: plainTextPassword } = req.body
 
@@ -68,7 +68,7 @@ app.post('/api/change-password', async (req, res) => {
 	}
 })
 
-
+//Login API call----------------------------------------------
 app.post('/api/login', async (req, res) => {
 	const { username, password } = req.body
 	const user = await User.findOne({ username }).lean()
@@ -94,7 +94,7 @@ app.post('/api/login', async (req, res) => {
 	res.json({ status: 'error', error: 'Invalid username/password' })
 })
 
-
+//Register  API call----------------------------------------------
 app.post('/api/register', async(req, res) => { //request response
 	console.log(req.body)
 	const {username, password: plaintextpword} = req.body // this is destructuring; taking usernmae and password from the req.body
