@@ -1,3 +1,12 @@
+// notes on getting webpages to run:
+// There are a number of ways you can get a whole directory of HTML files torun at once.
+// You can essentially beam a directory to a server on the local host, that captuers all the HTML files when you run the comment e.g. http-server in the command line
+// here, we use a module called express, that essentially does the same thing. 
+// The only issue is, ebcause you set the client side front end up in the server.js code,
+// You need to run it using npm run start or npm start. Even works with nodemon server.js
+// Somehow, the express package allows you to render whatever views you want.
+
+
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
